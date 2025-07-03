@@ -254,5 +254,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e785d0a2debdd3140b9bcb6ca6d26123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obsLength: 20
-  _spawnInterval: 2
+  _speed: 8
+  _length: 20
