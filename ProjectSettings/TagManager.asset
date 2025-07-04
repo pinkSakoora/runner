@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trigger
   - Obstacle
+  - Fall
   layers:
   - Default
   - TransparentFX
