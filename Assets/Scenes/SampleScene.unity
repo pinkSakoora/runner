@@ -250,11 +250,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.47, y: 2.34, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1138090419}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -620,7 +620,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 744427396}
-  - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1138090420
@@ -696,6 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955623566}
   - component: {fileID: 1955623567}
+  - component: {fileID: 1955623568}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -730,11 +730,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7467e11b8052b1cbc99979f7ac0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstaclePrefab:
-  - {fileID: 4994959815618970322, guid: 495763b8b9a4b8f1b9a7a643d7915e93, type: 3}
-  - {fileID: 3062691357932739991, guid: 242f734d468c0511f96aa55e810002e4, type: 3}
-  - {fileID: 3062691357932739991, guid: c9a348bd4c56b20deac0080875e816f9, type: 3}
-  - {fileID: 3062691357932739991, guid: b8f7593bc42d9fc75bade7f93e0d7a3a, type: 3}
+  _obstaclePrefabs: []
+--- !u!114 &1955623568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955623565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b66ba99f51c9e0c8bc6a0bcea409eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 4994959815618970322, guid: 495763b8b9a4b8f1b9a7a643d7915e93, type: 3}
+  jjv: {fileID: 3062691357932739991, guid: 242f734d468c0511f96aa55e810002e4, type: 3}
+  jvseries: {fileID: 3062691357932739991, guid: b8f7593bc42d9fc75bade7f93e0d7a3a, type: 3}
+  ujvjj: {fileID: 3062691357932739991, guid: c9a348bd4c56b20deac0080875e816f9, type: 3}
 --- !u!1001 &2050447719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +866,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 619394802}
+  - {fileID: 519420032}
   - {fileID: 1138090419}
   - {fileID: 571345059554783844}
   - {fileID: 2050447719}

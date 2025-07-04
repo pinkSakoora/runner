@@ -28,5 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trigger"))
             gameManager.SpawnObstacle();
+        if (collision.gameObject.CompareTag("Fall"))
+            Destroy(gameObject);
     }
 }
