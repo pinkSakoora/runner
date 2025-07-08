@@ -9,7 +9,7 @@ public class PermittedList : MonoBehaviour
     [SerializeField] GameObject jvseries;
     [SerializeField] GameObject ujvjj;
 
-    void Start()
+    void Awake()
     {
         List<GameObject> groundList = new List<GameObject>()
         {
