@@ -59,8 +59,8 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -125,111 +125,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: obstacles 1_0
+      name: TopGear
       rect:
         serializedVersion: 2
-        x: 47
-        y: 15
-        width: 11
-        height: 66
+        x: 0
+        y: 27
+        width: 32
+        height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 07b32d0d12ad52e90800000000000000
-      internalID: -7050989802806428816
+      spriteID: 8cce4bde9206d4065b3fb761632aee27
+      internalID: -870585106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles 1_1
+      name: WallPLaser
       rect:
         serializedVersion: 2
-        x: 119
-        y: 15
-        width: 10
-        height: 66
+        x: 240
+        y: 4
+        width: 15
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 575a150176a92b860800000000000000
-      internalID: 7544262093245097333
+      spriteID: f02d6783001b13338880c1affaaf4edf
+      internalID: -929020532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles 1_2
+      name: Platform1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 38
-        width: 34
-        height: 43
+        x: 257
+        y: 4
+        width: 30
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c947cac3c3947720800000000000000
-      internalID: 2843059733907589571
+      spriteID: 6b9ac83767fab8dc784abc7d39d002d0
+      internalID: 295017072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles 1_3
+      name: Platform2
       rect:
         serializedVersion: 2
-        x: 12
-        y: 15
-        width: 24
-        height: 13
+        x: 289
+        y: 4
+        width: 30
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d852e3745023eff90800000000000000
-      internalID: -6918036979343022707
+      spriteID: 894d7fb1f88379b86ac54f10e1585bc0
+      internalID: 1199709847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacles 1_4
+      name: LongVoidCLaser
       rect:
         serializedVersion: 2
-        x: 63
-        y: 15
-        width: 50
+        x: 128
+        y: 12
+        width: 112
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0ae3b1ce974ba4681e08ab41c2e9e1
+      internalID: 1157460996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BottomGear
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 22
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f374356dd02b7b8e0800000000000000
-      internalID: -1677676563672119489
+      spriteID: fc4709712a2071debb0dfd420db0fffe
+      internalID: -127304242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundWLaser
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 4
+        width: 42
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a14c5853fc6d87bf8880a1a6f230fb5
+      internalID: 207187080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VoidWLaser
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 11
+        width: 48
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f591b11eb7b1d2d31aa0e68989cf3d24
+      internalID: 1446843789
       vertices: []
       indices: 
       edges: []
@@ -238,7 +304,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ae451c53cd267bb579f27e90351bd296
     internalID: 0
     vertices: []
     indices: 
@@ -246,13 +312,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      obstacles 1_0: -7050989802806428816
-      obstacles 1_1: 7544262093245097333
-      obstacles 1_2: 2843059733907589571
-      obstacles 1_3: -6918036979343022707
-      obstacles 1_4: -1677676563672119489
+      BottomGear: -127304242
+      GroundWLaser: 207187080
+      LongVoidCLaser: 1157460996
+      Platform1: 295017072
+      Platform2: 1199709847
+      TopGear: -870585106
+      VoidWLaser: 1446843789
+      WallPLaser: -929020532
+      obstacles_10: -1233151261
+      obstacles_13: -1520730738
+      obstacles_14: 1428860056
+      obstacles_4: 723244570
+      obstacles_5: -356982188
+      obstacles_7: -276425479
+      obstacles_9: 1040300749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

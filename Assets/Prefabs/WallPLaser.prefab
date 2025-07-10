@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7544262093245097333, guid: b4177524d8d3c9c7abc8a663c6281d34, type: 3}
+  m_Sprite: {fileID: -929020532, guid: b4177524d8d3c9c7abc8a663c6281d34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.66}
+  m_Size: {x: 0.32, y: 0.09}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.08, y: 0.64}
+  m_Size: {x: 0.08, y: 0.8}
   m_EdgeRadius: 0
 --- !u!1 &8115137483991252768
 GameObject:
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621304996002414026}
   m_Layer: 0
-  m_Name: ShiftLaser
+  m_Name: WallPLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

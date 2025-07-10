@@ -18,15 +18,15 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
         _permittedList = GetComponent<PermittedList>();
-        _prevObstacle = _permittedList.ground;
+        _prevObstacle = _permittedList.Base;
         GenerateMap();
     }
     void GenerateMap()
     {
-        _spawnPoint = new Vector3(0, -5, 0);
+        _spawnPoint = new Vector3(0, 0, 0);
         for (int i = 0; i < 2; i++)
         {
-            Instantiate(_permittedList.ground, _spawnPoint, Quaternion.identity);
+            Instantiate(_permittedList.Base, _spawnPoint, Quaternion.identity);
             _spawnPoint += new Vector3(_obstacleLength, 0, 0);
         }
         for (int i = 0; i < WinCondition; i++)

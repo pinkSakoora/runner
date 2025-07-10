@@ -4,42 +4,66 @@ using UnityEngine;
 public class PermittedList : MonoBehaviour
 {
     public Dictionary<GameObject, List<GameObject>> permittedList = new Dictionary<GameObject, List<GameObject>>();
-    [SerializeField] public GameObject ground;
-    [SerializeField] GameObject jjv;
-    [SerializeField] GameObject jvseries;
-    [SerializeField] GameObject ujvjj;
+    [SerializeField] public GameObject Base;
+    [SerializeField] GameObject JumpJumpVoid;
+    [SerializeField] GameObject JumpSlide;
+    [SerializeField] GameObject JumpJump;
+    [SerializeField] GameObject JumpWallPLaser;
+    [SerializeField] GameObject PlatformJumps;
 
     void Awake()
     {
-        List<GameObject> groundList = new List<GameObject>()
+        List<GameObject> BaseList = new List<GameObject>()
         {
-            ground,
-            jjv,
-            jvseries,
-            ujvjj
+            JumpJumpVoid,
+            JumpSlide,
+            JumpJump,
+            JumpWallPLaser,
+            PlatformJumps
         };
 
-        List<GameObject> jjvList = new List<GameObject>()
+        List<GameObject> JumpJumpVoidList = new List<GameObject>()
         {
-            ground,
-            ujvjj
+            JumpSlide,
+            JumpJump,
+            JumpWallPLaser,
+            PlatformJumps
         };
 
-        List<GameObject> jvseriesList = new List<GameObject>()
+        List<GameObject> JumpSlideList = new List<GameObject>()
         {
-            jjv,
-            ground
+            JumpJumpVoid,
+            JumpJump,
+            JumpWallPLaser,
+            PlatformJumps
         };
 
-        List<GameObject> ujvjjList = new List<GameObject>()
+        List<GameObject> JumpJumpList = new List<GameObject>()
         {
-            ground,
-            jjv,
-            jvseries
+            JumpJumpVoid,
+            JumpSlide,
+            JumpWallPLaser,
+            PlatformJumps
         };
-        permittedList.Add(ground, groundList);
-        permittedList.Add(jjv, jjvList);
-        permittedList.Add(jvseries, jvseriesList);
-        permittedList.Add(ujvjj, ujvjjList);
+        List<GameObject> JumpWallPLaserList = new List<GameObject>()
+        {
+            JumpJumpVoid,
+            JumpSlide,
+            JumpJump,
+            PlatformJumps
+        };
+        List<GameObject> PlatformJumpsList = new List<GameObject>()
+        {
+            JumpJumpVoid,
+            JumpSlide,
+            JumpJump,
+            JumpWallPLaser,
+        };
+        permittedList.Add(Base, BaseList);
+        permittedList.Add(JumpJumpVoid, JumpJumpVoidList);
+        permittedList.Add(JumpSlide, JumpSlideList);
+        permittedList.Add(JumpJump, JumpJumpList);
+        permittedList.Add(JumpWallPLaser, JumpWallPLaserList);
+        permittedList.Add(PlatformJumps, PlatformJumpsList);
     }
 }

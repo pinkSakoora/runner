@@ -1,15 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    enum PlayerState { Running, Airborne, Sliding, Shifting }
+    enum PlayerState { Running, Airborne, Sliding, Shifting, Dead }
     PlayerState state;
 
     public Rigidbody2D _rb;
     public float Speed;
     public float JumpPower;
     public BoxCollider2D playerCollider;
+    public SpriteRenderer spriteRend;
 
     [SerializeField] BoxCollider2D _groundCheck;
     [SerializeField] LayerMask _groundMask;
@@ -32,12 +34,15 @@ public class PlayerMovement : MonoBehaviour
     public Animator colliderAnimator;
     void Update()
     {
-        _rb.linearVelocityX = Speed;
-        if (stateComplete)
+        if (state != PlayerState.Dead)
         {
-            SelectState();
+            _rb.linearVelocityX = Speed;
+            if (stateComplete)
+            {
+                SelectState();
+            }
+            UpdateState();
         }
-        UpdateState();
     }
 
     void FixedUpdate()
@@ -48,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
     void SelectState()
     {
+        if (state == PlayerState.Dead)
+        {
+            return;
+        }
         stateComplete = false;
         if (!grounded)
         {
@@ -127,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             sliding = false;
             colliderAnimator.SetTrigger("Idle");
         }
-        
+
     }
     void HandleJump()
     {
@@ -187,5 +196,19 @@ public class PlayerMovement : MonoBehaviour
     {
         // Allows jumping if slightly off the grouond, or if not yet touching the ground.
         grounded = Physics2D.OverlapAreaAll(_groundCheck.bounds.min, _groundCheck.bounds.max, _groundMask).Length > 0;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            Death();
+        }
+    }
+    public void Death()
+    {
+        animator.speed = 0;
+        state = PlayerState.Dead;
+        _rb.linearVelocityX = 0;
     }
 }
