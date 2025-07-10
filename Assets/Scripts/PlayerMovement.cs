@@ -1,12 +1,15 @@
-using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    enum PlayerState { Running, Airborne, Sliding, Shifting }
+    PlayerState state;
+
     public Rigidbody2D _rb;
     public float Speed;
     public float JumpPower;
+    public BoxCollider2D playerCollider;
 
     [SerializeField] BoxCollider2D _groundCheck;
     [SerializeField] LayerMask _groundMask;
@@ -20,17 +23,112 @@ public class PlayerMovement : MonoBehaviour
 
     bool grounded;
 
+    float slideTime;
+    bool sliding;
+
+    bool stateComplete;
+
+    public Animator animator;
+    public Animator colliderAnimator;
     void Update()
     {
         _rb.linearVelocityX = Speed;
-        HandleJump();
+        if (stateComplete)
+        {
+            SelectState();
+        }
+        UpdateState();
     }
 
     void FixedUpdate()
     {
         CheckGround();
+        HandleJump();
     }
 
+    void SelectState()
+    {
+        stateComplete = false;
+        if (!grounded)
+        {
+            state = PlayerState.Airborne;
+            StartAirborne();
+        }
+        else
+        {
+            if (sliding)
+            {
+                state = PlayerState.Sliding;
+                StartSliding();
+            }
+            else
+            {
+                state = PlayerState.Running;
+                StartRunning();
+            }
+        }
+    }
+
+    void StartAirborne()
+    {
+        animator.Play("Jump");
+    }
+
+    void StartSliding()
+    {
+        animator.Play("Slide");
+    }
+
+    void StartRunning()
+    {
+        animator.Play("Run");
+    }
+
+    void UpdateState()
+    {
+        switch (state)
+        {
+            case PlayerState.Running:
+                UpdateRun();
+                break;
+            case PlayerState.Airborne:
+                UpdateAir();
+                break;
+            case PlayerState.Sliding:
+                UpdateSlide();
+                break;
+            case PlayerState.Shifting:
+                break;
+        }
+    }
+
+    void UpdateRun()
+    {
+        if (!grounded || sliding)
+        {
+            stateComplete = true;
+        }
+    }
+
+    void UpdateAir()
+    {
+        if (grounded)
+        {
+            stateComplete = true;
+        }
+    }
+
+    void UpdateSlide()
+    {
+        slideTime += Time.deltaTime;
+        if (!grounded || slideTime > 1f)
+        {
+            stateComplete = true;
+            sliding = false;
+            colliderAnimator.SetTrigger("Idle");
+        }
+        
+    }
     void HandleJump()
     {
         // If at peak of jump, lower gravity; floatier jump
@@ -70,9 +168,18 @@ public class PlayerMovement : MonoBehaviour
     public void Slam(InputAction.CallbackContext ctx)
     {
         // Slam down
-        if (ctx.performed && !grounded)
+        if (ctx.performed)
         {
-            _rb.linearVelocityY = -_maxJumpSpeed;
+            if (!grounded)
+            {
+                _rb.linearVelocityY = -_maxJumpSpeed;
+            }
+            else
+            {
+                slideTime = 0;
+                colliderAnimator.SetTrigger("Slide");
+                sliding = true;
+            }
         }
     }
 
