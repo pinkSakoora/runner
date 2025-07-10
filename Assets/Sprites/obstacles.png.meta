@@ -153,7 +153,7 @@ TextureImporter:
         x: 240
         y: 4
         width: 15
-        height: 80
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,12 +213,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongVoidCLaser
+      name: LongVoidCLaserPointL
       rect:
         serializedVersion: 2
         x: 128
         y: 12
-        width: 112
+        width: 15
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -300,6 +300,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: WallPLaserPoint
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 78
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eeef43e481ff65e899b6ca87e35e62b
+      internalID: -81190253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongVoidCLaserPointR
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 12
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3dace2064e3b4b797800b0b3c113bc
+      internalID: 2029969540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LongVoidCLaser
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 31
+        width: 80
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203ec13b5e187a89993969794159504d
+      internalID: 1755204342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallCLaserPoint
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 158
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977000c5e74983af8b88173fb31d37a1
+      internalID: 1907788864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WallCLaser
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 84
+        width: 15
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c624164b11d1b87db0a8f7007356838
+      internalID: 1194342861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -318,12 +428,17 @@ TextureImporter:
     nameFileIdTable:
       BottomGear: -127304242
       GroundWLaser: 207187080
-      LongVoidCLaser: 1157460996
+      LongVoidCLaser: 1755204342
+      LongVoidCLaserPointL: 1157460996
+      LongVoidCLaserPointR: 2029969540
       Platform1: 295017072
       Platform2: 1199709847
       TopGear: -870585106
       VoidWLaser: 1446843789
+      WallCLaser: 1194342861
+      WallCLaserPoint: 1907788864
       WallPLaser: -929020532
+      WallPLaserPoint: -81190253
       obstacles_10: -1233151261
       obstacles_13: -1520730738
       obstacles_14: 1428860056

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    enum PlayerState { Running, Airborne, Sliding, Shifting, Dead }
+    enum PlayerState { Running, Airborne, Sliding, Dead }
     PlayerState state;
 
     public Rigidbody2D _rb;
@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float JumpPower;
     public BoxCollider2D playerCollider;
     public SpriteRenderer spriteRend;
+    [SerializeField] PlayerInput input;
 
     [SerializeField] BoxCollider2D _groundCheck;
     [SerializeField] LayerMask _groundMask;
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     float slideTime;
     bool sliding;
 
+    float shiftTime;
+    public bool shifting;
+
     bool stateComplete;
 
     public Animator animator;
@@ -42,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
                 SelectState();
             }
             UpdateState();
+            if (shifting)
+            {
+                Shift();
+            }
         }
     }
 
@@ -106,8 +114,6 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Sliding:
                 UpdateSlide();
                 break;
-            case PlayerState.Shifting:
-                break;
         }
     }
 
@@ -136,6 +142,28 @@ public class PlayerMovement : MonoBehaviour
             sliding = false;
             colliderAnimator.SetTrigger("Idle");
         }
+    }
+
+    void Shift()
+    {
+        spriteRend.color = Color.white;
+        shiftTime += Time.deltaTime;
+        if (shiftTime > 1f)
+        {
+            stateComplete = true;
+            shifting = false;
+            spriteRend.color = Color.black;
+            shiftTime = 0;
+        }
+    }
+
+    void Death()
+    {
+        animator.speed = 0;
+        state = PlayerState.Dead;
+        _rb.linearVelocityX = 0;
+        _rb.gravityScale = 0;
+        input.enabled = false;
 
     }
     void HandleJump()
@@ -192,6 +220,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Shift(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && !shifting)
+        {
+            shifting = true;
+        }
+    }
+
     void CheckGround()
     {
         // Allows jumping if slightly off the grouond, or if not yet touching the ground.
@@ -200,15 +236,13 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle"))
+        if (collision.CompareTag("PShift") && !shifting)
         {
             Death();
         }
-    }
-    public void Death()
-    {
-        animator.speed = 0;
-        state = PlayerState.Dead;
-        _rb.linearVelocityX = 0;
+        else if (collision.CompareTag("Obstacle"))
+        {
+            Death();
+        }
     }
 }

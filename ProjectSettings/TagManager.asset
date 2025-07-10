@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Trigger
   - Obstacle
-  - Fall
+  - PShift
+  - CShift
   layers:
   - Default
   - TransparentFX
