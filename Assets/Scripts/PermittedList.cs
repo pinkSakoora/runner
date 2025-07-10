@@ -10,6 +10,7 @@ public class PermittedList : MonoBehaviour
     [SerializeField] GameObject JumpJump;
     [SerializeField] GameObject JumpWallPLaser;
     [SerializeField] GameObject PlatformJumps;
+    [SerializeField] GameObject LongCLaser;
 
     void Awake()
     {
@@ -19,7 +20,8 @@ public class PermittedList : MonoBehaviour
             JumpSlide,
             JumpJump,
             JumpWallPLaser,
-            PlatformJumps
+            PlatformJumps,
+            LongCLaser
         };
 
         List<GameObject> JumpJumpVoidList = new List<GameObject>()
@@ -27,7 +29,8 @@ public class PermittedList : MonoBehaviour
             JumpSlide,
             JumpJump,
             JumpWallPLaser,
-            PlatformJumps
+            PlatformJumps,
+            LongCLaser
         };
 
         List<GameObject> JumpSlideList = new List<GameObject>()
@@ -35,7 +38,8 @@ public class PermittedList : MonoBehaviour
             JumpJumpVoid,
             JumpJump,
             JumpWallPLaser,
-            PlatformJumps
+            PlatformJumps,
+            LongCLaser
         };
 
         List<GameObject> JumpJumpList = new List<GameObject>()
@@ -43,14 +47,16 @@ public class PermittedList : MonoBehaviour
             JumpJumpVoid,
             JumpSlide,
             JumpWallPLaser,
-            PlatformJumps
+            PlatformJumps,
+            LongCLaser
         };
         List<GameObject> JumpWallPLaserList = new List<GameObject>()
         {
             JumpJumpVoid,
             JumpSlide,
             JumpJump,
-            PlatformJumps
+            PlatformJumps,
+            LongCLaser
         };
         List<GameObject> PlatformJumpsList = new List<GameObject>()
         {
@@ -58,6 +64,15 @@ public class PermittedList : MonoBehaviour
             JumpSlide,
             JumpJump,
             JumpWallPLaser,
+            LongCLaser
+        };
+        List<GameObject> LongCLaserList = new List<GameObject>()
+        {
+            JumpJumpVoid,
+            JumpSlide,
+            JumpJump,
+            JumpWallPLaser,
+            PlatformJumps
         };
         permittedList.Add(Base, BaseList);
         permittedList.Add(JumpJumpVoid, JumpJumpVoidList);
@@ -65,5 +80,6 @@ public class PermittedList : MonoBehaviour
         permittedList.Add(JumpJump, JumpJumpList);
         permittedList.Add(JumpWallPLaser, JumpWallPLaserList);
         permittedList.Add(PlatformJumps, PlatformJumpsList);
+        permittedList.Add(LongCLaser, LongCLaserList);
     }
 }

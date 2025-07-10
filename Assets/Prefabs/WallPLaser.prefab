@@ -301,3 +301,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _laser: {fileID: 1831326946452400725}
+  _pink: 1

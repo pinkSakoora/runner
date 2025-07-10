@@ -281,6 +281,7 @@ MonoBehaviour:
   JumpJump: {fileID: 3504464301893010333, guid: 2f3a6b66ce7fb760b8c368bb23755e98, type: 3}
   JumpWallPLaser: {fileID: 3504464301893010333, guid: d7437d4964d976d9195da5a919c09d43, type: 3}
   PlatformJumps: {fileID: 1575225003425285884, guid: 6491b7a04ca967fe2af2d12ff4bf37bc, type: 3}
+  LongCLaser: {fileID: 1575225003425285884, guid: 6b7a36ffbcc533101af78f4eeebf2a2e, type: 3}
 --- !u!1001 &2878389878720262292
 PrefabInstance:
   m_ObjectHideFlags: 0
