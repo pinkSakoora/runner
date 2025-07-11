@@ -15,11 +15,11 @@ public class LaserManager : MonoBehaviour
     {
         if (_pink)
         {
-            _laser.SetActive(!_player.shifting);
+            _laser.SetActive(!_player.Shifting);
         }
         else
         {
-            _laser.SetActive(_player.shifting);
+            _laser.SetActive(_player.Shifting);
         }
     }
 }

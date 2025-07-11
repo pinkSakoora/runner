@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &579466172 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3349601049984506382, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+  m_PrefabInstance: {fileID: 2878389878720262292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +208,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &703857916 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4443313226279151897, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+  m_PrefabInstance: {fileID: 2878389878720262292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1175008750 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5653818692862640315, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
@@ -282,6 +292,11 @@ MonoBehaviour:
   JumpWallPLaser: {fileID: 3504464301893010333, guid: d7437d4964d976d9195da5a919c09d43, type: 3}
   PlatformJumps: {fileID: 1575225003425285884, guid: 6491b7a04ca967fe2af2d12ff4bf37bc, type: 3}
   LongCLaser: {fileID: 1575225003425285884, guid: 6b7a36ffbcc533101af78f4eeebf2a2e, type: 3}
+--- !u!50 &2052647953 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8545596057992600001, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+  m_PrefabInstance: {fileID: 2878389878720262292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2878389878720262292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,9 +354,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: Body
+      value: 
+      objectReference: {fileID: 2052647953}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
       propertyPath: input
       value: 
       objectReference: {fileID: 1175008750}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 1175008750}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: SpriteRend
+      value: 
+      objectReference: {fileID: 579466172}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: _shiftTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: _slideTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: _coyoteTime
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: PlayerCollider
+      value: 
+      objectReference: {fileID: 703857916}
+    - target: {fileID: 9128874335927942600, guid: 5664e033e53734de89ed5678b96de70b, type: 3}
+      propertyPath: _gravityFallMult
+      value: 1.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

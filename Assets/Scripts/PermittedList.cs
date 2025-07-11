@@ -56,7 +56,6 @@ public class PermittedList : MonoBehaviour
             JumpSlide,
             JumpJump,
             PlatformJumps,
-            LongCLaser
         };
         List<GameObject> PlatformJumpsList = new List<GameObject>()
         {
@@ -71,7 +70,6 @@ public class PermittedList : MonoBehaviour
             JumpJumpVoid,
             JumpSlide,
             JumpJump,
-            JumpWallPLaser,
             PlatformJumps
         };
         permittedList.Add(Base, BaseList);

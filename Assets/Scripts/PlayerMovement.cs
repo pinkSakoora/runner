@@ -5,14 +5,13 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     enum PlayerState { Running, Airborne, Sliding, Dead }
-    PlayerState state;
+    PlayerState _state;
 
-    public Rigidbody2D _rb;
+    public Rigidbody2D Body;
     public float Speed;
-    public float JumpPower;
-    public BoxCollider2D playerCollider;
-    public SpriteRenderer spriteRend;
-    [SerializeField] PlayerInput input;
+    public BoxCollider2D PlayerCollider;
+    public SpriteRenderer SpriteRend;
+    [SerializeField] PlayerInput _input;
 
     [SerializeField] BoxCollider2D _groundCheck;
     [SerializeField] LayerMask _groundMask;
@@ -20,33 +19,37 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _gravityFloatMult;
     [SerializeField] float _gravityFallMult;
     [SerializeField] float _gravity;
-
+    public float JumpPower;
     [SerializeField] float _maxJumpSpeed;       // Remember to set as a multiplier of JumpPower post testing
     [SerializeField] float _floatJumpSpeed;     // Remember to set as a multiplier of JumpPower post testing
+    [SerializeField] float _coyoteTime;
+    float _coyoteTimer;
 
-    bool grounded;
+    bool _grounded;
 
-    float slideTime;
-    bool sliding;
+    [SerializeField] float _slideTime;
+    float _slideTimer;
+    bool _sliding;
 
-    float shiftTime;
-    public bool shifting;
+    [SerializeField] float _shiftTime;
+    float _shiftTimer;
+    public bool Shifting;
 
-    bool stateComplete;
+    bool _stateComplete;
 
     public Animator animator;
     public Animator colliderAnimator;
     void Update()
     {
-        if (state != PlayerState.Dead)
+        if (_state != PlayerState.Dead)
         {
-            _rb.linearVelocityX = Speed;
-            if (stateComplete)
+            Body.linearVelocityX = Speed;
+            if (_stateComplete)
             {
                 SelectState();
             }
             UpdateState();
-            if (shifting)
+            if (Shifting)
             {
                 Shift();
             }
@@ -61,26 +64,26 @@ public class PlayerMovement : MonoBehaviour
 
     void SelectState()
     {
-        if (state == PlayerState.Dead)
+        if (_state == PlayerState.Dead)
         {
             return;
         }
-        stateComplete = false;
-        if (!grounded)
+        _stateComplete = false;
+        if (!_grounded)
         {
-            state = PlayerState.Airborne;
+            _state = PlayerState.Airborne;
             StartAirborne();
         }
         else
         {
-            if (sliding)
+            if (_sliding)
             {
-                state = PlayerState.Sliding;
+                _state = PlayerState.Sliding;
                 StartSliding();
             }
             else
             {
-                state = PlayerState.Running;
+                _state = PlayerState.Running;
                 StartRunning();
             }
         }
@@ -103,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateState()
     {
-        switch (state)
+        switch (_state)
         {
             case PlayerState.Running:
                 UpdateRun();
@@ -119,86 +122,96 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateRun()
     {
-        if (!grounded || sliding)
+        if (!_grounded || _sliding)
         {
-            stateComplete = true;
+            _stateComplete = true;
         }
     }
 
     void UpdateAir()
     {
-        if (grounded)
+        if (_grounded)
         {
-            stateComplete = true;
+            _stateComplete = true;
         }
     }
 
     void UpdateSlide()
     {
-        slideTime += Time.deltaTime;
-        if (!grounded || slideTime > 1f)
+        _slideTimer += Time.deltaTime;
+        if (!_grounded || _slideTimer > _slideTime)
         {
-            stateComplete = true;
-            sliding = false;
+            _stateComplete = true;
+            _sliding = false;
             colliderAnimator.SetTrigger("Idle");
         }
     }
 
     void Shift()
     {
-        spriteRend.color = Color.white;
-        shiftTime += Time.deltaTime;
-        if (shiftTime > 1f)
+        SpriteRend.color = Color.white;
+        _shiftTimer += Time.deltaTime;
+        if (_shiftTimer > _shiftTime)
         {
-            stateComplete = true;
-            shifting = false;
-            spriteRend.color = Color.black;
-            shiftTime = 0;
+            _stateComplete = true;
+            Shifting = false;
+            SpriteRend.color = Color.black;
+            _shiftTimer = 0;
         }
     }
 
     void Death()
     {
         animator.speed = 0;
-        state = PlayerState.Dead;
-        _rb.linearVelocityX = 0;
-        _rb.gravityScale = 0;
-        input.enabled = false;
+        _state = PlayerState.Dead;
+        Body.linearVelocityX = 0;
+        Body.gravityScale = 0;
+        _input.enabled = false;
 
     }
     void HandleJump()
     {
-        // If at peak of jump, lower gravity; floatier jump
-        if (Mathf.Abs(_rb.linearVelocityY) < _floatJumpSpeed)
+        if (_grounded)
         {
-            _rb.gravityScale = _gravity * _gravityFloatMult;
+            _coyoteTimer = _coyoteTime;
+        }
+        else
+        {
+            _coyoteTimer -= Time.deltaTime;
+        }
+        // If at peak of jump, lower gravity; floatier jump
+        if (Mathf.Abs(Body.linearVelocityY) < _floatJumpSpeed)
+        {
+            Body.gravityScale = _gravity * _gravityFloatMult;
         }
 
         // Strengthen gravity if going downwards
-        else if (_rb.linearVelocityY < -_floatJumpSpeed)
+        else if (Body.linearVelocityY < -_floatJumpSpeed)
         {
-            _rb.gravityScale = _gravity * _gravityFallMult;
+            Body.gravityScale = _gravity * _gravityFallMult;
         }
 
         else
-            _rb.gravityScale = _gravity;
+            Body.gravityScale = _gravity;
 
         // Limit fall speed
-        _rb.linearVelocityY = Mathf.Max(_rb.linearVelocityY, -_maxJumpSpeed);
+        Body.linearVelocityY = Mathf.Max(Body.linearVelocityY, -_maxJumpSpeed);
     }
 
     public void Jump(InputAction.CallbackContext ctx)
     {
         // Full jump
-        if (ctx.performed && grounded)
+        if (ctx.performed && (_grounded || _coyoteTimer > 0))
         {
-            _rb.linearVelocityY = JumpPower;
+            Body.linearVelocityY = JumpPower;
+            _coyoteTimer = 0f;
         }
 
         // Partial jump
-        if (ctx.canceled && _rb.linearVelocityY > 0)
+        if (ctx.canceled && Body.linearVelocityY > 0)
         {
-            _rb.linearVelocityY *= 0.5f;
+            Body.linearVelocityY *= 0.5f;
+            _coyoteTime = 0f;
         }
     }
 
@@ -207,36 +220,36 @@ public class PlayerMovement : MonoBehaviour
         // Slam down
         if (ctx.performed)
         {
-            if (!grounded)
+            if (!_grounded)
             {
-                _rb.linearVelocityY = -_maxJumpSpeed;
+                Body.linearVelocityY = -_maxJumpSpeed;
             }
             else
             {
-                slideTime = 0;
+                _slideTimer = 0;
                 colliderAnimator.SetTrigger("Slide");
-                sliding = true;
+                _sliding = true;
             }
         }
     }
 
     public void Shift(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && !shifting)
+        if (ctx.performed && !Shifting)
         {
-            shifting = true;
+            Shifting = true;
         }
     }
 
     void CheckGround()
     {
         // Allows jumping if slightly off the grouond, or if not yet touching the ground.
-        grounded = Physics2D.OverlapAreaAll(_groundCheck.bounds.min, _groundCheck.bounds.max, _groundMask).Length > 0;
+        _grounded = Physics2D.OverlapAreaAll(_groundCheck.bounds.min, _groundCheck.bounds.max, _groundMask).Length > 0;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PShift") && !shifting)
+        if (collision.CompareTag("PShift") && !Shifting)
         {
             Death();
         }
