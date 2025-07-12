@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -37,8 +38,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool _stateComplete;
 
-    public Animator animator;
-    public Animator colliderAnimator;
+    public Animator Animator;
+    public Animator ColliderAnimator;
+
+    public ParticleSystem DeathParticles;
     void Update()
     {
         if (_state != PlayerState.Dead)
@@ -91,17 +94,17 @@ public class PlayerMovement : MonoBehaviour
 
     void StartAirborne()
     {
-        animator.Play("Jump");
+        Animator.Play("Jump");
     }
 
     void StartSliding()
     {
-        animator.Play("Slide");
+        Animator.Play("Slide");
     }
 
     void StartRunning()
     {
-        animator.Play("Run");
+        Animator.Play("Run");
     }
 
     void UpdateState()
@@ -143,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _stateComplete = true;
             _sliding = false;
-            colliderAnimator.SetTrigger("Idle");
+            ColliderAnimator.SetTrigger("Idle");
         }
     }
 
@@ -160,14 +163,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Death()
-    {
-        animator.speed = 0;
-        _state = PlayerState.Dead;
-        Body.linearVelocityX = 0;
-        Body.gravityScale = 0;
-        _input.enabled = false;
 
+    IEnumerator PlayerDeath()
+    {
+        Animator.speed = 0;
+        _state = PlayerState.Dead;
+        _input.enabled = false;
+        yield return new WaitForSeconds(1f);
+        SpriteRend.enabled = false;
+        DeathParticles.Play();
     }
     void HandleJump()
     {
@@ -227,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 _slideTimer = 0;
-                colliderAnimator.SetTrigger("Slide");
+                ColliderAnimator.SetTrigger("Slide");
                 _sliding = true;
             }
         }
@@ -251,11 +255,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("PShift") && !Shifting)
         {
-            Death();
+            StartCoroutine("PlayerDeath");
         }
         else if (collision.CompareTag("Obstacle"))
         {
-            Death();
+            StartCoroutine("PlayerDeath");
         }
     }
 }
