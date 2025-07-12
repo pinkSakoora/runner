@@ -166,10 +166,10 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator PlayerDeath()
     {
-        Animator.speed = 0;
+        Animator.Play("Death");
         _state = PlayerState.Dead;
         _input.enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         SpriteRend.enabled = false;
         DeathParticles.Play();
     }
