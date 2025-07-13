@@ -169,7 +169,9 @@ public class PlayerMovement : MonoBehaviour
         Animator.Play("Death");
         _state = PlayerState.Dead;
         _input.enabled = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
+        SpriteRend.color = Color.white;
+        yield return new WaitForSeconds(0.3f);
         SpriteRend.enabled = false;
         DeathParticles.Play();
     }

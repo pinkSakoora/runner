@@ -2,7 +2,32 @@ fileFormatVersion: 2
 guid: c8178b83f333d2461ac0080b9880d957
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Death
+    second: {fileID: 7400000, guid: bf7b7d60e7c0c6d8c8cb483fe383f999, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Idle
+    second: {fileID: 7400000, guid: d40b578de5186414bbbd238400d5f52a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Jump
+    second: {fileID: 7400000, guid: 063d7b53e7e2bfd51824048554b426e1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Run
+    second: {fileID: 7400000, guid: 81cc63f87631f357ea8aaa55fc99354c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Slide
+    second: {fileID: 7400000, guid: 4097eb29e4485b01b98668801fc1af5b, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +127,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638876782603379960
+  platformSettingsDirtyTick: 638880013512320800
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -507,6 +532,27 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 0}
   - name: Frame_11
     originalName: 
+    pivot: {x: 0.56578946, y: -0.9117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 34
+      width: 38
+      height: 17
+    spriteID: ee5fa16c3e5efd0d392748beee5674f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 34}
+  - name: Frame_0
+    originalName: 
     pivot: {x: 0.5769231, y: -0.9117647}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,27 +563,6 @@ ScriptedImporter:
       y: 17
       width: 39
       height: 17
-    spriteID: ee5fa16c3e5efd0d392748beee5674f3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 17}
-  - name: Frame_0
-    originalName: 
-    pivot: {x: 0.5769231, y: -0.9117647}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 34
-      width: 39
-      height: 17
     spriteID: d6253ee2faa5c3101b6a2e9c6f2ce8dc
     spriteBone: []
     spriteOutline: []
@@ -546,7 +571,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 28, y: 34}
+    uvTransform: {x: 28, y: 17}
   - name: Frame_0
     originalName: 
     pivot: {x: 0.42307693, y: -0.469697}
@@ -896,9 +921,9 @@ ScriptedImporter:
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
-        x: 10
+        x: 11
         y: 16
-        width: 38
+        width: 37
         height: 16
       spriteId: ee5fa16c3e5efd0d392748beee5674f3
     - name: Frame_11
