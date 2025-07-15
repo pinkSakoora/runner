@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     enum PlayerState { Running, Airborne, Sliding, Dead }
     PlayerState _state;
 
+    public GameManager GameManager;
     public Rigidbody2D Body;
     public float Speed;
     public BoxCollider2D PlayerCollider;
@@ -174,6 +175,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         SpriteRend.enabled = false;
         DeathParticles.Play();
+        yield return new WaitForSeconds(1.0f);
+        GameManager.ShowDeathScreen();
     }
     void HandleJump()
     {
