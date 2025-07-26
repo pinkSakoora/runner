@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1497622365045777569}
   m_Father: {fileID: 621304996002414026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4247317486778966537
@@ -186,7 +187,7 @@ GameObject:
   - component: {fileID: 8299063979698580859}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: PShift
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,12 +200,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4958586464457321626}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 621304996002414026}
+  m_Father: {fileID: 6666714563806925733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8299063979698580859
 BoxCollider2D:
@@ -284,7 +285,6 @@ Transform:
   m_Children:
   - {fileID: 6666714563806925733}
   - {fileID: 1093361746086262828}
-  - {fileID: 1497622365045777569}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6046031684840805158

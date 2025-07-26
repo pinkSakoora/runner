@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerState _state;
 
     public GameManager GameManager;
+    public Score Score;
     public Rigidbody2D Body;
     public float Speed;
     public BoxCollider2D PlayerCollider;
@@ -175,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         SpriteRend.enabled = false;
         DeathParticles.Play();
+        Score.OnDeath();
         yield return new WaitForSeconds(1.0f);
         GameManager.ShowDeathScreen();
     }
@@ -258,11 +260,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PShift") && !Shifting)
-        {
-            StartCoroutine("PlayerDeath");
-        }
-        else if (collision.CompareTag("Obstacle"))
+        if (collision.CompareTag("Obstacle"))
         {
             StartCoroutine("PlayerDeath");
         }
