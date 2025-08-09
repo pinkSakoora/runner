@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject DeathScreen;
     public GameObject PauseScreen;
     public GameObject WinScreen;
+    public GameObject TutorialScreen;
 
     public void ShowDeathScreen()
     {
@@ -46,6 +47,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void Tutorial()
+    {
+        TutorialScreen.SetActive(!TutorialScreen.activeSelf);
     }
 
     public void Win()

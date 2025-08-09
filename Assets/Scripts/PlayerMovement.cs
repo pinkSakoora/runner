@@ -59,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
                 Shift();
             }
         }
+        else
+            Body.linearVelocity = Vector2.zero;
     }
 
     void FixedUpdate()
