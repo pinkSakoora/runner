@@ -375,7 +375,7 @@ TextureImporter:
         width: 15
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -397,7 +397,7 @@ TextureImporter:
         width: 15
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -406,6 +406,28 @@ TextureImporter:
       bones: []
       spriteID: 3c624164b11d1b87db0a8f7007356838
       internalID: 1194342861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Win
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 122
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828e1cb96a280768a9d85ba45b2c4a5e
+      internalID: 118592361
       vertices: []
       indices: 
       edges: []
@@ -439,6 +461,7 @@ TextureImporter:
       WallCLaserPoint: 1907788864
       WallPLaser: -929020532
       WallPLaserPoint: -81190253
+      Win: 118592361
       obstacles_10: -1233151261
       obstacles_13: -1520730738
       obstacles_14: 1428860056

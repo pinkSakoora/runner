@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject DeathScreen;
     public GameObject PauseScreen;
+    public GameObject WinScreen;
 
     public void ShowDeathScreen()
     {
@@ -34,19 +35,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void PauseGame(InputAction.CallbackContext ctx)
+    public void PauseGame()
     {
-        if (ctx.performed)
+        PauseScreen.SetActive(!PauseScreen.activeSelf);
+        if (!PauseScreen.activeSelf)
         {
-            PauseScreen.SetActive(!PauseScreen.activeSelf);
-            if (!PauseScreen.activeSelf)
-            {
-                Time.timeScale = 1;
-            }
-            else
-            {
-                Time.timeScale = 0;
-            }
+            Time.timeScale = 1;
         }
+        else
+        {
+            Time.timeScale = 0;
+        }
+    }
+
+    public void Win()
+    {
+        WinScreen.SetActive(true);
     }
 }

@@ -264,5 +264,12 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine("PlayerDeath");
         }
+        if (collision.CompareTag("Finish"))
+        {
+            GameManager.Win();
+            _state = PlayerState.Dead;
+            Animator.Play("Run");
+            Destroy(collision.gameObject);
+        }
     }
 }
